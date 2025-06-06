@@ -155,9 +155,14 @@ function App() {
     const normalizedWeather = normalizeWeather(weatherData.main);
     const mapKey = `${mood}_${normalizedWeather}`;
     mwConfig = moodWeatherMap[mapKey] || moodWeatherMap['default'];
-    // Extra: add dark semi-transparent overlay under image for maximum readability on super light images
+    // Mood "Sad" always sets the specified background regardless of weather.
+    let sadBgImageUrl = "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80')";
+    let useSadBackground = mood === 'Sad';
     bgStyle = {
-      backgroundImage: 'linear-gradient(rgba(33,37,53,0.35),rgba(255,255,255,0.20)), linear-gradient(rgba(255,255,255,.33), rgba(252,249,245,.27)), ' + mwConfig.bg,
+      backgroundImage:
+        useSadBackground
+          ? 'linear-gradient(rgba(33,37,53,0.35),rgba(255,255,255,0.20)), linear-gradient(rgba(255,255,255,.33), rgba(252,249,245,.27)), ' + sadBgImageUrl
+          : 'linear-gradient(rgba(33,37,53,0.35),rgba(255,255,255,0.20)), linear-gradient(rgba(255,255,255,.33), rgba(252,249,245,.27)), ' + mwConfig.bg,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       borderRadius: '28px',
