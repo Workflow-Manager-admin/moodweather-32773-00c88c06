@@ -380,7 +380,9 @@ body {
 .cute-weather-desc {
   font-size: 1.15rem;
   color: #87afea;
-  margin-bottom: 0;
+  margin: 10px 0 0 0;
+  padding: 4px 0;
+  font-weight: 600;
 }
 
 /* Mood display: glass pill with icon */

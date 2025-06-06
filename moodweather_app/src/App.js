@@ -298,7 +298,7 @@ function App() {
                   </div>
                   <div className="mw-weather-temp cute-temp" aria-label="Temperature">
                     {tempIcon}
-                    <span style={{fontWeight: 700, fontSize: '1.17em', marginLeft: '5px', color:'#43e8d8'}}>
+                    <span className="temp-value">
                       {weatherData.temp}
                     </span>
                   </div>
