@@ -185,12 +185,20 @@ function App() {
 
   return (
     <div className="app cute-app-bg" style={
-      weatherData && bgStyle ?
-        {
-          // Always use a minimum semi-opaque dark overlay under the image
-          backgroundImage: `linear-gradient(rgba(22,28,55,0.52),rgba(48,55,83,0.17)), ${mwConfig.bg}`,
-          transition: 'background-image 0.8s'
-        }
+      weatherData && bgStyle
+        ? (
+          mood === 'Sad'
+            ? {
+                // Sad mood: always show specific unsplash image as bg, with overlay for readability
+                backgroundImage: `linear-gradient(rgba(22,28,55,0.52),rgba(48,55,83,0.17)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80')`,
+                transition: 'background-image 0.8s'
+              }
+            : {
+                // For all others, use per-weather-mood bg logic
+                backgroundImage: `linear-gradient(rgba(22,28,55,0.52),rgba(48,55,83,0.17)), ${mwConfig.bg}`,
+                transition: 'background-image 0.8s'
+              }
+        )
         : {}
     }>
       {/* App Bar */}
