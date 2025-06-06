@@ -600,12 +600,15 @@ body {
   align-items: center;
   gap: 16px;
   color: #43e8d8;
+  /* HIGH CONTRAST AND TEXT SHADOW FOR HERO HEADINGS */
+  text-shadow: 0 2px 12px #21276588, 0 1px 0 #fff;
 }
 
 .subtitle {
-  color: #43e8d8;
+  color: #20C5FF;
   font-weight: 700;
   font-size: 1.17rem;
+  text-shadow: 0 1px 4px #1c20307a;
 }
 
 .title {
