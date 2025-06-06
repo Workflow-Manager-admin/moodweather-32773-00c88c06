@@ -522,13 +522,13 @@ body {
 .cute-logo {
   font-size: 1.375rem;
   font-family: 'Montserrat', 'Inter', Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.04em;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #43e8d8;
-  text-shadow: 0 2px 12px #43e8d867;
+  color: #2eccfa;
+  text-shadow: 0 2px 12px #13173675, 0 1px 0 #fff;
   transition: color .17s;
 }
 .logo-symbol {
@@ -540,14 +540,15 @@ body {
 
 .cute-powered {
   font-family: 'Inter', 'Montserrat', Arial, sans-serif;
-  font-size: 1.02em;
-  color: #43e8d8;
-  font-weight: 700;
-  background: rgba(67,232,216,.10);
-  border-radius: 10px;
-  padding: 4px 13px;
-  letter-spacing: .025em;
-  transition: background .17s;
+  font-size: 1.08em;
+  color: #168ab1;
+  font-weight: 900;
+  background: rgba(46,204,250,.22);
+  border-radius: 12px;
+  padding: 6px 16px 6px 16px;
+  letter-spacing: .028em;
+  text-shadow: 0 1px 6px #fff9, 0 1px 0 #fff;
+  transition: background .17s, color .17s;
 }
 
 /* Container/layout and hero */
