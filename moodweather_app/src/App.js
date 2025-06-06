@@ -1,23 +1,55 @@
 import React, { useState } from 'react';
 import './App.css';
 
-// Emoji/icon maps for cute UI
-const moodEmojis = {
-  Happy: '😊',
-  Sad: '😢',
-  Tired: '😴',
-  Anxious: '😰',
-  Excited: '🤩'
+// SVG icon maps for "cool" modern UI
+const moodIcons = {
+  Happy: (
+    <svg className="cool-svg-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" fill="#43e8d8" opacity="0.14"/><circle cx="16" cy="16" r="12" stroke="#43e8d8" strokeWidth="2"/><ellipse cx="11.5" cy="14.2" rx="1.7" ry="2" fill="#43e8d8" /><ellipse cx="20.5" cy="14.2" rx="1.7" ry="2" fill="#43e8d8"/><path d="M12.2 18.2c1.25 2 6.35 2 7.6 0" stroke="#43e8d8" strokeWidth="1.6" strokeLinecap="round" /></svg>
+  ),
+  Sad: (
+    <svg className="cool-svg-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" fill="#b24bf3" opacity="0.13"/><circle cx="16" cy="16" r="12" stroke="#b24bf3" strokeWidth="2"/><ellipse cx="11.5" cy="14.2" rx="1.7" ry="2" fill="#b24bf3"/><ellipse cx="20.5" cy="14.2" rx="1.7" ry="2" fill="#b24bf3"/><path d="M12.4 21c1.4-2 5.8-2 7.2 0" stroke="#b24bf3" strokeWidth="1.5" strokeLinecap="round" /></svg>
+  ),
+  Tired: (
+    <svg className="cool-svg-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" fill="#6068c6" opacity="0.12"/><circle cx="16" cy="16" r="12" stroke="#6068c6" strokeWidth="2"/><path d="M10.5 14c1 .7 2.3.7 3.2 0" stroke="#6068c6" strokeLinecap="round"/><path d="M17.5 14c1 .7 2.3.7 3.2 0" stroke="#6068c6" strokeLinecap="round"/><path d="M12 19.7c1.41 1.14 6.59 1.14 8 0" stroke="#6068c6" strokeWidth="1.4" strokeLinecap="round"/></svg>
+  ),
+  Anxious: (
+    <svg className="cool-svg-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" fill="#43e8d8" opacity="0.12"/><circle cx="16" cy="16" r="12" stroke="#43e8d8" strokeWidth="2"/><ellipse cx="11.5" cy="14.2" rx="1.7" ry="2" fill="#43e8d8"/><ellipse cx="20.5" cy="14.2" rx="1.7" ry="2" fill="#43e8d8"/><path d="M13.5 21c2.3-1.9 5.8-1.9 7.1 0" stroke="#43e8d8" strokeWidth="1.3" strokeLinecap="round"/></svg>
+  ),
+  Excited: (
+    <svg className="cool-svg-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" fill="#f6aa3a" opacity="0.22"/><circle cx="16" cy="16" r="12" stroke="#f6aa3a" strokeWidth="2"/><ellipse cx="11.5" cy="14.2" rx="1.5" ry="2" fill="#f6aa3a"/><ellipse cx="20.5" cy="14.2" rx="1.5" ry="2" fill="#f6aa3a"/><path d="M12 18c1.6 2.5 6.4 2.5 8 0" stroke="#f6aa3a" strokeWidth="1.5" strokeLinecap="round" /></svg>
+  ),
 };
 
-const weatherEmojis = {
-  Clear: '☀️',
-  Clouds: '☁️',
-  Rain: '🌧️',
-  Snow: '❄️',
-  Thunderstorm: '⛈️',
-  Drizzle: '🌦️'
+const weatherIcons = {
+  Clear: (
+    <svg className="cool-svg-icon cool-svg-icon--rotate" viewBox="0 0 38 38"><circle cx="19" cy="19" r="9" fill="#ffe59e" stroke="#ffd200" strokeWidth="2"/><g><line x1="19" y1="4" x2="19" y2="0" stroke="#ffd200" strokeWidth="2"/><line x1="19" y1="34" x2="19" y2="38" stroke="#ffd200" strokeWidth="2"/><line x1="4" y1="19" x2="0" y2="19" stroke="#ffd200" strokeWidth="2"/><line x1="34" y1="19" x2="38" y2="19" stroke="#ffd200" strokeWidth="2"/><line x1="29.1" y1="29.1" x2="31.6" y2="31.6" stroke="#ffd200" strokeWidth="2"/><line x1="8.9" y1="29.1" x2="6.4" y2="31.6" stroke="#ffd200" strokeWidth="2"/><line x1="8.9" y1="8.9" x2="6.4" y2="6.4" stroke="#ffd200" strokeWidth="2"/><line x1="29.1" y1="8.9" x2="31.6" y2="6.4" stroke="#ffd200" strokeWidth="2"/></g></svg>
+  ),
+  Clouds: (
+    <svg className="cool-svg-icon" viewBox="0 0 38 38"><ellipse cx="19" cy="26" rx="12" ry="8" fill="#8cd3fe" /><ellipse cx="26" cy="22" rx="7" ry="5" fill="#b1c7ef" /><ellipse cx="13" cy="23" rx="8" ry="6" fill="#d0d8fc" /></svg>
+  ),
+  Rain: (
+    <svg className="cool-svg-icon" viewBox="0 0 38 38"><ellipse cx="20" cy="27" rx="11" ry="8" fill="#355282"/><ellipse cx="27" cy="21" rx="7" ry="5" fill="#63b1f4"/><ellipse cx="14" cy="22" rx="7" ry="5" fill="#7ec4f8"/><g stroke="#43e8d8" strokeWidth="2" strokeLinecap="round"><line x1="14" y1="29" x2="14" y2="34"/><line x1="20" y1="29" x2="20" y2="37"/><line x1="26" y1="30" x2="26" y2="36"/></g></svg>
+  ),
+  Snow: (
+    <svg className="cool-svg-icon" viewBox="0 0 38 38"><ellipse cx="19" cy="26" rx="12" ry="8" fill="#dbeafe"/><ellipse cx="26" cy="22" rx="7" ry="5" fill="#b3cbe6"/><ellipse cx="13" cy="23" rx="8" ry="6" fill="#e0e9fa"/><g stroke="#b24bf3" strokeWidth="2"><line x1="16" y1="33" x2="22" y2="37"/><line x1="17" y1="37" x2="21" y2="33"/><circle cx="19" cy="36" r="1" fill="#fff"/></g></svg>
+  ),
+  Thunderstorm: (
+    <svg className="cool-svg-icon" viewBox="0 0 38 38"><ellipse cx="20" cy="24" rx="12" ry="7" fill="#3d4457"/><polygon points="18,30 22,30 19,36" fill="#f6aa3a"/><polyline points="23,26 20,30 24,30 21,34" fill="none" stroke="#f6aa3a" strokeWidth="2" /></svg>
+  ),
+  Drizzle: (
+    <svg className="cool-svg-icon" viewBox="0 0 38 38"><ellipse cx="20" cy="25" rx="11" ry="6" fill="#7ec4f8"/><ellipse cx="28" cy="20" rx="5" ry="3.5" fill="#a5c9fa"/><ellipse cx="12" cy="21" rx="6" ry="3.2" fill="#b1d8f5"/><g stroke="#43e8d8" strokeWidth="1.3" strokeLinecap="round"><line x1="14" y1="28" x2="14" y2="32"/><line x1="20" y1="28" x2="20" y2="34"/><line x1="26" y1="29" x2="26" y2="33"/></g></svg>
+  )
 };
+
+// SVG icons for city and temp
+const cityIcon = (
+  <svg className="cool-svg-icon" viewBox="0 0 32 32"><rect x="2" y="14" width="8" height="13" fill="#43e8d8" opacity="0.14"/><rect x="2" y="14" width="8" height="13" stroke="#43e8d8" strokeWidth="2" /><rect x="13" y="10" width="7" height="17" fill="#6068c6" opacity="0.12"/><rect x="13" y="10" width="7" height="17" stroke="#6068c6" strokeWidth="2" /><rect x="22" y="7" width="8" height="20" fill="#b24bf3" opacity="0.14"/><rect x="22" y="7" width="8" height="20" stroke="#b24bf3" strokeWidth="2" /></svg>
+);
+
+const tempIcon = (
+  <svg className="cool-svg-icon" viewBox="0 0 26 26"><rect x="8" y="2" width="7" height="16" rx="3.5" fill="#f1fdff" stroke="#43e8d8" strokeWidth="1.8"/><circle cx="12" cy="21" r="4" fill="#43e8d8" opacity="0.12"/><circle cx="12" cy="21" r="3" stroke="#43e8d8" strokeWidth="1.5" fill="none"/><rect x="11.3" y="4" width="1.3" height="9" fill="#43e8d8"/></svg>
+);
+
 
 /**
  * MoodWeather Main Container - EXTENDED
