@@ -155,8 +155,9 @@ function App() {
     const normalizedWeather = normalizeWeather(weatherData.main);
     const mapKey = `${mood}_${normalizedWeather}`;
     mwConfig = moodWeatherMap[mapKey] || moodWeatherMap['default'];
+    // Extra: add dark semi-transparent overlay under image for maximum readability on super light images
     bgStyle = {
-      backgroundImage: 'linear-gradient(rgba(255,255,255,.40), rgba(252,249,245,.32)), ' + mwConfig.bg,
+      backgroundImage: 'linear-gradient(rgba(33,37,53,0.35),rgba(255,255,255,0.20)), linear-gradient(rgba(255,255,255,.33), rgba(252,249,245,.27)), ' + mwConfig.bg,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       borderRadius: '28px',
@@ -178,7 +179,15 @@ function App() {
   const playfulFont = { fontFamily: "'Fredoka', 'Quicksand', 'Comic Sans MS', 'Inter', cursive, sans-serif" };
 
   return (
-    <div className="app cute-app-bg" style={weatherData && bgStyle ? { backgroundImage: mwConfig.bg, transition: 'background-image 0.8s' } : {}}>
+    <div className="app cute-app-bg" style={
+      weatherData && bgStyle ?
+        {
+          // Always use a minimum semi-opaque dark overlay under the image
+          backgroundImage: `linear-gradient(rgba(22,28,55,0.52),rgba(48,55,83,0.17)), ${mwConfig.bg}`,
+          transition: 'background-image 0.8s'
+        }
+        : {}
+    }>
       {/* App Bar */}
       <nav className="navbar cute-navbar" style={playfulFont}>
         <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
