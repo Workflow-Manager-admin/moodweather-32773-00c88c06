@@ -723,10 +723,10 @@ input[type='number'] {
 .mw-weather-main,
 .cute-city {
   font-size: 1.9rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: .04em;
-  text-shadow: 0 4px 10px #fff6fa38, 0 2px 5px #eeeeff16;
-  color: #af46fd;
+  text-shadow: 0 4px 10px #fff6fa89, 0 2px 5px #233f7791, 0 1px 0 #fff;
+  color: #181943;
   margin-bottom: 3px;
   display: flex;
   align-items: center;
@@ -736,8 +736,12 @@ input[type='number'] {
 .mw-weather-temp,
 .cute-temp {
   font-size: 2.4rem;
-  font-weight: 700;
-  color: #e76bee;
+  font-weight: 900;
+  color: #43e8d8;
+  text-shadow: 0 2px 8px #2227ff5a, 0 1px 0 #fff;
+  background: rgba(255,255,255,0.09);
+  border-radius: 8px;
+  padding: 2px 8px;
 }
 
 .mw-weather-desc,
