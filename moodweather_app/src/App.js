@@ -226,16 +226,18 @@ function App() {
           <div className="mw-results">
             {error && <div className="mw-error cute-error">{error}</div>}
             {weatherData && (
-              <div className="mw-weather-card cute-weather-card" style={bgStyle}>
-                <div className="mw-weather-main cute-city">
-                  <span style={{ fontSize: "2.1rem", marginRight: "7px" }}>
-                    {weatherEmojis[normalizeWeather(weatherData.main)] || '🌈'}
-                  </span>
-                  {weatherData.city}
-                </div>
-                <div className="mw-weather-temp cute-temp">
-                  <span role="img" aria-label="temperature" style={{marginRight: 8, fontSize: "1.5rem"}}>🌡️</span>
-                  {weatherData.temp}
+              <div className="mw-weather-card cute-weather-card stylish-weather-card" style={bgStyle}>
+                <div className="weather-card-header">
+                  <div className="mw-weather-main cute-city">
+                    <span style={{ fontSize: "2.1rem", marginRight: "7px" }}>
+                      {weatherEmojis[normalizeWeather(weatherData.main)] || '🌈'}
+                    </span>
+                    {weatherData.city}
+                  </div>
+                  <div className="mw-weather-temp cute-temp">
+                    <span role="img" aria-label="temperature" style={{marginRight: 8, fontSize: "1.5rem"}}>🌡️</span>
+                    {weatherData.temp}
+                  </div>
                 </div>
                 <div className="mw-weather-desc cute-weather-desc">
                   <span>{weatherData.description}</span>
@@ -245,7 +247,7 @@ function App() {
                   </span>
                 </div>
                 <div className="mw-weather-mood cute-weather-mood">
-                  <span className="mw-mood-title" style={{}}>
+                  <span className="mw-mood-title">
                     <span role="img" aria-label={mood}>{moodEmojis[mood]}</span>
                     &nbsp;Your mood:
                   </span>
@@ -253,11 +255,11 @@ function App() {
                     {mood}
                   </span>
                 </div>
-                <div className="cute-motivation" style={{ marginTop: 13, color: "#fff9ed", background: "rgba(236, 181, 254, .19)", borderRadius: "12px", padding: "10px 17px" }}>
+                <div className="cute-motivation weather-card-quote">
                   <span role="img" aria-label="inspiration" style={{fontSize:"1.25em", marginRight: 6}}>✨</span>
                   <span style={{ fontSize: '1.07rem' }}>{mwConfig.quote}</span>
                 </div>
-                <div className="cute-outfit" style={{ marginTop: 7, color: "#e76bee", fontWeight: 600 }}>
+                <div className="cute-outfit weather-card-outfit">
                   <span role="img" aria-label="outfit" style={{marginRight: "2px"}}>🧃👗</span>
                   Outfit Suggestion: <span>{mwConfig.outfit}</span>
                 </div>
