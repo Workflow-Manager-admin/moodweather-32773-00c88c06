@@ -383,14 +383,15 @@ body {
 .cute-outfit,
 .weather-card-outfit {
   margin-top: 4px;
-  color: #87afea;
-  font-weight: 700;
-  font-size: 1.03rem;
+  color: #328cfa;
+  font-weight: 900;
+  font-size: 1.08rem;
   border-radius: 11px;
-  padding: 5px 13px 5.5px 11px;
-  background: rgba(88,199,250,0.10);
+  padding: 6px 14px 6.5px 14px;
+  background: linear-gradient(90deg, #fff 70%, #b3daff55 100%);
   display: inline-block;
-  letter-spacing: .015em;
+  letter-spacing: .018em;
+  text-shadow: 0 1px 6px #fffdeed7, 0 1px 0 #e3f1ea;
 }
 
 /* Animated, SVG icon in card */
