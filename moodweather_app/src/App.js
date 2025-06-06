@@ -80,7 +80,7 @@ function App() {
     setWeatherData(null);
 
     // For demo: You must insert your API key below from https://openweathermap.org/api
-    const apiKey = 'YOUR_API_KEY';
+    const apiKey = '7b7c85836bda41485369c43acbf566cf';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
       city
     )}&appid=${apiKey}&units=metric`;
