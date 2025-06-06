@@ -747,23 +747,28 @@ input[type='number'] {
 .mw-weather-desc,
 .cute-weather-desc {
   font-size: 1.19rem;
-  color: #7e44ba;
+  color: #353a7d;
   margin-bottom: 1px;
+  font-weight: 700;
+  text-shadow: 0 1px 5px #fff7, 0 1px 0 #eaeaea;
 }
 
 .mw-weather-mood,
 .cute-weather-mood {
   font-size: 1.13rem;
-  color: #ff90be;
-  font-weight: 700;
+  color: #ce2f6b;
+  font-weight: 900;
   letter-spacing: 0.02em;
-  background: #ffe1fc50;
+  background: #fffdfdba;
   border-radius: 11px;
   padding: 3.5px 13px 4.5px 13px;
   margin-top: 2px;
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  box-shadow: 0 2px 12px #221c2d1f;
+  text-shadow: 0 1px 4px #fffdeed1;
+  border: 1px solid #dbeafe;
 }
 
 .cute-motivation {
