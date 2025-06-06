@@ -1,14 +1,375 @@
-:root {
-  --brand-primary: #3498db;
-  --brand-secondary: #2ecc71;
-  --brand-accent: #f1c40f;
+/* --- Pastel, playful, and cute MoodWeather Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Quicksand:wght@400;700&display=swap');
 
-  --base-light: #f8fafc;
-  --base-dark: #ffffff;
-  --text-color: #1a232d;
-  --text-secondary: #64748b;
-  --border-color: rgba(52, 152, 219, 0.09);
+:root {
+  --brand-primary: #e68ffd;
+  --brand-secondary: #a0e8ff;
+  --brand-accent: #ffc1be;
+
+  --pastel-pink: #ffe0ef;
+  --pastel-purple: #edc9fa;
+  --pastel-blue: #c8e6fa;
+  --pastel-yellow: #fff8ca;
+  --pastel-green: #ccf5dd;
+  --white: #fff;
+  --bg-cute: linear-gradient(140deg, #ffccf1 0%, #aeeaff 49%, #ffd0ec 100%);
+  --input-border: #e9c1ff;
+  --input-focus: #fff0fa;
+  --card-shadow: 0 8px 32px 0 rgba(236,181,254,0.25);
+
+  --text-color: #5d396d;
+  --text-secondary: #8d85a9;
+  --border-color: #e2d0fc;
 }
+
+/* Cute playful font for the app */
+body {
+  margin: 0;
+  font-family: 'Fredoka', 'Quicksand', 'Inter', cursive, 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: var(--bg-cute);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Overlay background for weather visual */
+.cute-app-bg {
+  min-height: 100vh;
+  background: var(--bg-cute);
+}
+
+/* App container layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar,
+.cute-navbar {
+  background: linear-gradient(90deg,#edc9fa 60%, #fddee4 100%);
+  padding: 18px 0 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: var(--card-shadow);
+  z-index: 100;
+  border-radius: 0 0 24px 24px;
+  box-sizing: border-box;
+}
+
+.logo,
+.cute-logo {
+  font-size: 1.35rem;
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-symbol {
+  color: #df67fc;
+}
+
+/* container content */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Center form vertically, cute margin up for navbar */
+.mw-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 115px;
+}
+
+.mw-form,
+.cute-form {
+  background: linear-gradient(120deg,#fff4fd 70%, #e0e7ff 100%);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow);
+  padding: 36px 31px 25px 31px;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  gap: 19px;
+  margin-bottom: 36px;
+  border: 2px solid var(--pastel-purple);
+  position: relative;
+}
+
+.mw-label,
+.cute-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 1.08rem;
+  color: #d070ff;
+  font-family: 'Fredoka', 'Quicksand', cursive, sans-serif;
+  letter-spacing: .01em;
+}
+
+.emoji-label {
+  font-size: 1.18em;
+  vertical-align: middle;
+}
+
+/* Cute input styles */
+.mw-input,
+.cute-input,
+.mw-dropdown,
+.cute-dropdown {
+  padding: 13px 14px;
+  border: 2px solid var(--input-border);
+  border-radius: 14px;
+  background: #fcfaff;
+  font-size: 1.14rem;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: 'Quicksand', 'Fredoka', sans-serif;
+  box-shadow: 0 1px 9px 0 #fff3fb22;
+}
+
+.mw-input:focus,
+.cute-input:focus,
+.mw-dropdown:focus,
+.cute-dropdown:focus {
+  border-color: #eaacfa;
+  background: var(--input-focus);
+  box-shadow: 0 0 0 3px #ffd0ec40;
+}
+
+/* Cute button styling */
+.mw-btn,
+.cute-btn,
+.btn,
+.btn-large {
+  background: linear-gradient(90deg,#f7d2f7 70%, #ffe7e1 100%);
+  color: #c468c2;
+  font-family: 'Fredoka', 'Quicksand', 'Inter', cursive, sans-serif;
+  font-weight: 700;
+  letter-spacing: .05em;
+  border-radius: 18px;
+  box-shadow: 0 2px 18px rgba(255, 195, 226, 0.09);
+  border: 2px solid #f7d2f7;
+  padding: 13px 18px;
+  font-size: 1.17rem;
+  cursor: pointer;
+  margin-top: 7px;
+  transition: background 0.17s, box-shadow .2s;
+}
+
+.btn:hover,
+.mw-btn:hover,
+.cute-btn:hover {
+  background: linear-gradient(90deg,#efd6ff 75%, #f9f7fd 100%);
+  color: #e66fbe;
+  box-shadow: 0 2px 24px 0 #eac4fc55;
+  border-color: #eac4fc;
+}
+
+/* Results & cards */
+.mw-results {
+  width: 380px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main result weather card gets huge shadow & pastel rounds */
+.mw-weather-card,
+.cute-weather-card {
+  width: 100%;
+  padding: 28px 18px 18px 18px;
+  background: linear-gradient(120deg, #e8eafd 90%, #fbefff 100%);
+  color: #6a38ad;
+  border-radius: 28px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: center;
+  font-family: 'Fredoka', 'Quicksand', cursive, sans-serif;
+  border: 2px solid #edc9fa;
+  position: relative;
+  transition: box-shadow 0.14s;
+  backdrop-filter: blur(2px);
+}
+
+.mw-weather-main,
+.cute-city {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-shadow: 0 4px 10px #fff6fa38, 0 2px 5px #eeeeff16;
+  color: #af46fd;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mw-weather-temp,
+.cute-temp {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #e76bee;
+}
+
+.mw-weather-desc,
+.cute-weather-desc {
+  font-size: 1.19rem;
+  color: #7e44ba;
+  margin-bottom: 1px;
+}
+
+.mw-weather-mood,
+.cute-weather-mood {
+  font-size: 1.13rem;
+  color: #ff90be;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: #ffe1fc50;
+  border-radius: 11px;
+  padding: 3.5px 13px 4.5px 13px;
+  margin-top: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.cute-motivation {
+  font-size: 1.13rem;
+  background: #fffde960;
+  border-radius: 13px;
+  margin-top: 14px;
+  color: #8d85a9;
+}
+
+.cute-outfit {
+  font-size: 1.06rem;
+}
+
+/* Error, accent */
+.mw-error,
+.cute-error {
+  color: #e85a91;
+  background: #fff1fa;
+  border: 2px solid #fecbff;
+  border-radius: 11px;
+  padding: 12px 14px;
+  margin-top: .7em;
+  margin-bottom: .4em;
+  font-size: 1.07rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 1px 6px #f8acef36;
+}
+
+.cute-powered {
+  font-family: 'Fredoka', 'Quicksand', cursive, sans-serif;
+  font-size: 1.05em;
+}
+
+/* Headings and hero styles - soften */
+.hero {
+  padding-top: 105px;
+  padding-bottom: 54px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #cc6ef4;
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+.subtitle {
+  color: #c389e8;
+  font-weight: 600;
+  font-size: 1.17rem;
+}
+.title {
+  font-size: 3.65rem;
+  font-weight: 900;
+  line-height: 1.09;
+  margin: 0;
+  color: #ffbfe8;
+  text-shadow: 0 6px 32px #edc9fa46, 0 2px 8px #baafff15;
+}
+.description {
+  font-size: 1.13rem;
+  line-height: 1.5;
+  color: #a686d9;
+  max-width: 600px;
+  margin-bottom: 14px;
+}
+
+/* Buttons general */
+.btn,
+.btn-large {
+  background-color: var(--pastel-blue);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 9px 23px;
+  font-size: 1.13rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Fredoka', 'Quicksand', 'Inter', cursive, sans-serif;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #bab6f3;
+  color: #ff97e2;
+}
+
+.btn-large {
+  padding: 13px 26px;
+  font-size: 1.18rem;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 530px) {
+  .mw-form, .cute-form, .mw-results {
+    width: 99vw;
+    min-width: 0;
+    max-width: 99vw;
+    box-sizing: border-box;
+    padding: 14vw 2vw 9vw 2vw;
+  }
+  .mw-weather-card, .cute-weather-card {
+    border-radius: 18px;
+    margin: 0 2vw 10vw 2vw;
+    box-sizing: border-box;
+    padding: 18vw 3vw 6vw 3vw;
+  }
+}
+
+/* Remove spinners/arrows in number input (for mobile UI softness) */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 
 body {
   margin: 0;
