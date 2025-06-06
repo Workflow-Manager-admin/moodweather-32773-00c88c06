@@ -266,7 +266,7 @@ body {
 .stylish-weather-card {
   width: 100%;
   padding: 34px 24px 24px 24px;
-  background: var(--glass-gradient);
+  background: var(--glass-gradient), linear-gradient(115deg, rgba(44,56,93,0.13) 0%, rgba(30,39,79,0.17) 100%);
   color: var(--text-frost);
   border-radius: 28px;
   box-shadow: var(--cool-shadow-glass);
@@ -289,7 +289,7 @@ body {
 .mw-weather-card:hover {
   box-shadow: var(--cool-shadow-deep);
   border-color: #43e8d8cc;
-  background: linear-gradient(115deg, rgba(20,54,164,0.93) 30%, rgba(48,108,239,0.76) 88%);
+  background: linear-gradient(115deg, rgba(44,66,164,0.93) 30%, rgba(48,108,239,0.76) 88%), linear-gradient(115deg, rgba(20,54,164,0.80) 30%, rgba(48,108,239,0.56) 88%);
 }
 
 @keyframes cardRise {
