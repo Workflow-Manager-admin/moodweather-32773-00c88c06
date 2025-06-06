@@ -316,9 +316,18 @@ body {
 .weather-card-header {
   display: flex;
   justify-content: center;
-  gap: 28px;
-  align-items: flex-center;
+  gap: 32px;
+  align-items: center;
   width: 100%;
+  padding-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+  .weather-card-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
 }
 
 /* Modern bold city text + icon */
@@ -345,9 +354,28 @@ body {
   color: var(--cool-accent);
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 12px;
   text-shadow: 0 4px 18px #1cecee39;
+
+  /* NEW: For strong focus and prominence of temperature */
+  margin: 18px 0 12px 0;
+  width: 100%;
+  padding: 8px 0;
 }
+
+.mw-weather-temp .temp-value,
+.cute-temp .temp-value {
+  font-size: 2.55rem;
+  font-weight: 900;
+  color: #25defa;
+  text-shadow: 0 3px 12px #43e8d85a, 0 1.5px 0 #fff;
+  padding: 0 9px;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  display: inline-block;
+}
+
 .mw-weather-desc,
 .cute-weather-desc {
   font-size: 1.15rem;
