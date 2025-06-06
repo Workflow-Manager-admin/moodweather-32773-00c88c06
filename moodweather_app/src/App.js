@@ -191,16 +191,16 @@ function App() {
               <span
                 className="cute-powered"
                 style={{
-                  color: '#ff9a76',
-                  fontWeight: 600,
+                  color: '#3498db',
+                  fontWeight: 700,
                   fontSize: '1.02rem',
-                  background: 'rgba(241,196,15,.07)',
+                  background: 'rgba(46,204,250,0.15)',
                   borderRadius: 10,
                   padding: '4px 11px',
                   ...playfulFont
                 }}
               >
-                Powered by <span style={{ color: '#e87a41', fontWeight: 700 }}>KAVIA AI</span>
+                Powered by <span style={{ color: '#2eccfa', fontWeight: 700 }}>KAVIA AI</span>
               </span>
             </div>
           </div>
