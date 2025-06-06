@@ -1,25 +1,36 @@
 /* --- Pastel, playful, and cute MoodWeather Theme --- */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700&display=swap');
 
 :root {
-  --brand-primary: #e68ffd;
-  --brand-secondary: #a0e8ff;
-  --brand-accent: #ffc1be;
+  --cool-primary: #71b8fa;
+  --cool-secondary: #6068c6;
+  --cool-accent: #43e8d8;
+  --cool-pink: #b24bf3;
+  --cool-bg-1: #121926;
+  --cool-bg-blur: rgba(52, 84, 175, 0.65);
+  --frosted-blur: blur(18px) saturate(120%);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-gradient: linear-gradient(115deg, rgba(49,82,172,0.82) 12%, rgba(33,34,60,0.82) 94%);
+  --cool-gradient: linear-gradient(125deg, #3651f3 7%, #00cffb 80%, #4339c6 100%);
+  --cool-card-shadow: 0 6px 48px 0 rgba(54, 81, 243, 0.17), 0 1.5px 9px 0 #0ffbd910;
+  --cool-shadow-deep: 0 12px 48px 0 rgba(69, 108, 240, 0.28);
+  --cool-shadow-glass: 0 18px 36px 0 rgba(43, 69, 114, 0.22), 0 2px 12px 0 #43e9d033;
+  --cool-border: 1.9px solid var(--glass-border);
 
-  --pastel-pink: #ffe0ef;
-  --pastel-purple: #edc9fa;
-  --pastel-blue: #c8e6fa;
-  --pastel-yellow: #fff8ca;
-  --pastel-green: #ccf5dd;
-  --white: #fff;
-  --bg-cute: linear-gradient(140deg, #ffccf1 0%, #aeeaff 49%, #ffd0ec 100%);
-  --input-border: #e9c1ff;
-  --input-focus: #fff0fa;
-  --card-shadow: 0 8px 32px 0 rgba(236,181,254,0.25);
+  --text-dark: #1c2030;
+  --text-bright: #f8fafd;
+  --text-frost: #e5eafe;
+  --text-secondary: #87afea;
+  --text-accent: #43e8d8;
+  --nav-blur: blur(14px) saturate(108%);
+  --transition-main: 0.32s cubic-bezier(.19,1,.22,1);
+  --transition-short: 0.19s cubic-bezier(.45,1.12,.56,1.06);
 
-  --text-color: #5d396d;
-  --text-secondary: #8d85a9;
-  --border-color: #e2d0fc;
+  --input-bg: rgba(24, 33, 65, 0.52);
+  --input-focus: rgba(90, 163, 239, 0.16);
+  --input-border: #3e57b2;
+
+  --outline: 1.5px solid #43e9d08f;
 }
 
 /* Cute playful font for the app */
