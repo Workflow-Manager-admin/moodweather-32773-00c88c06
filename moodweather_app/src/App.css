@@ -789,16 +789,18 @@ input[type='number'] {
 .mw-error,
 .cute-error {
   color: #e85a91;
-  background: #fff1fa;
+  background: linear-gradient(90deg, #fff6f8 80%, #ffe8ee 100%);
   border: 2px solid #fecbff;
   border-radius: 11px;
   padding: 12px 14px;
   margin-top: .7em;
   margin-bottom: .4em;
-  font-size: 1.07rem;
+  font-size: 1.10rem;
   width: 100%;
   text-align: center;
-  box-shadow: 0 1px 6px #f8acef36;
+  box-shadow: 0 2px 12px #f08cbe23, 0 1px 0 #fff;
+  font-weight: 800;
+  text-shadow: 0 2px 6px #fff7;
 }
 
 .cute-powered {
