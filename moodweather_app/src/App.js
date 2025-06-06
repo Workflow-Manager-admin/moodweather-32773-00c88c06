@@ -1,6 +1,24 @@
 import React, { useState } from 'react';
 import './App.css';
 
+// Emoji/icon maps for cute UI
+const moodEmojis = {
+  Happy: '😊',
+  Sad: '😢',
+  Tired: '😴',
+  Anxious: '😰',
+  Excited: '🤩'
+};
+
+const weatherEmojis = {
+  Clear: '☀️',
+  Clouds: '☁️',
+  Rain: '🌧️',
+  Snow: '❄️',
+  Thunderstorm: '⛈️',
+  Drizzle: '🌦️'
+};
+
 /**
  * MoodWeather Main Container - EXTENDED
  * - Fetches city weather from OpenWeatherMap API.
