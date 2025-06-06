@@ -279,16 +279,16 @@ body {
 .cute-weather-card,
 .stylish-weather-card {
   width: 100%;
-  padding: 34px 24px 24px 24px;
+  padding: 36px 32px 28px 32px; /* more vertical & horizontal space for a clean look */
   background: var(--glass-gradient), linear-gradient(115deg, rgba(44,56,93,0.13) 0%, rgba(30,39,79,0.17) 100%);
   color: var(--text-frost);
   border-radius: 28px;
   box-shadow: var(--cool-shadow-glass);
   text-align: center;
-  margin: 10px 0 20px 0;
+  margin: 20px 0 30px 0; /* more vertical spacing for separation */
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
   align-items: center;
   font-family: 'Inter', 'Montserrat', Arial, sans-serif;
   border: var(--cool-border);
