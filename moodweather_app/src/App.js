@@ -184,8 +184,8 @@ function App() {
         <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
             <div className="logo" style={logoFontStyle}>
-              <span className="logo-symbol" style={{fontSize: "1.7em", marginRight: 6, color: "#df67fc"}}>🌈</span> MoodWeather
-              <span style={{fontSize: "1.1em", marginLeft: "3px"}} role="img" aria-label="Smile">✨</span>
+              <span className="logo-symbol" style={{fontSize: "1.5em", marginRight: 6, color: "#3498db"}}>☀️</span> MoodWeather
+              <span style={{fontSize: "1.1em", marginLeft: "3px", color: "#2eccfa"}} role="img" aria-label="Smile">✨</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span

@@ -2,35 +2,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@700&display=swap');
 
 :root {
-  --cool-primary: #71b8fa;
-  --cool-secondary: #6068c6;
-  --cool-accent: #43e8d8;
-  --cool-pink: #b24bf3;
-  --cool-bg-1: #121926;
-  --cool-bg-blur: rgba(52, 84, 175, 0.65);
-  --frosted-blur: blur(18px) saturate(120%);
+  /* Modern and sleek color palette for MoodWeather */
+  --cool-primary: #3498db; /* replaced with brand blue */
+  --cool-secondary: #2767a8; /* deeper blue */
+  --cool-accent: #2eccfa; /* accent blue (slightly cyan) */
+  --cool-pink: #597ef7;    /* replaced pink with soft blue */
+  --cool-bg-1: #141e30;    /* blue-black bg */
+  --cool-bg-blur: rgba(52, 98, 175, 0.72);
+  --frosted-blur: blur(18px) saturate(115%);
   --glass-border: rgba(255, 255, 255, 0.22);
-  --glass-gradient: linear-gradient(115deg, rgba(49,82,172,0.82) 12%, rgba(33,34,60,0.82) 94%);
-  --cool-gradient: linear-gradient(125deg, #3651f3 7%, #00cffb 80%, #4339c6 100%);
-  --cool-card-shadow: 0 6px 48px 0 rgba(54, 81, 243, 0.17), 0 1.5px 9px 0 #0ffbd910;
-  --cool-shadow-deep: 0 12px 48px 0 rgba(69, 108, 240, 0.28);
-  --cool-shadow-glass: 0 18px 36px 0 rgba(43, 69, 114, 0.22), 0 2px 12px 0 #43e9d033;
-  --cool-border: 1.9px solid var(--glass-border);
+  --glass-gradient: linear-gradient(115deg, rgba(52,152,219,0.80) 8%, rgba(39,103,168,0.8) 92%);
+  --cool-gradient: linear-gradient(132deg, #3498db 22%, #2767a8 100%);
+  --cool-card-shadow: 0 10px 35px 0 rgba(41, 128, 185, 0.10), 0 1.5px 9px 0 #288fa713;
+  --cool-shadow-deep: 0 12px 48px 0 rgba(52, 98, 175, 0.22);
+  --cool-shadow-glass: 0 18px 36px 0 rgba(39, 103, 168, 0.16), 0 2px 12px 0 #3498db20;
+  --cool-border: 2px solid var(--glass-border);
 
   --text-dark: #1c2030;
   --text-bright: #f8fafd;
   --text-frost: #e5eafe;
-  --text-secondary: #87afea;
-  --text-accent: #43e8d8;
+  --text-secondary: #bccbe7;
+  --text-accent: #2eccfa;
   --nav-blur: blur(14px) saturate(108%);
   --transition-main: 0.32s cubic-bezier(.19,1,.22,1);
   --transition-short: 0.19s cubic-bezier(.45,1.12,.56,1.06);
 
-  --input-bg: rgba(24, 33, 65, 0.52);
-  --input-focus: rgba(90, 163, 239, 0.16);
-  --input-border: #3e57b2;
+  --input-bg: rgba(29, 41, 78, 0.54);
+  --input-focus: rgba(52, 152, 219, 0.16);
+  --input-border: #3498db;
 
-  --outline: 1.5px solid #43e9d08f;
+  --outline: 1.5px solid #2eccfa50;
+}
+
+/* Flat, subtly animated blue gradient background */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--cool-gradient), #141e30;
+  min-height: 100vh;
+  color: var(--text-bright);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 1.2s cubic-bezier(.16,1.11,.47,.97);
+  background-attachment: fixed;
+  background-size: 180% 180%;
+  animation: appBackgroundFlow 13s ease-in-out infinite;
+}
+
+@keyframes appBackgroundFlow {
+  0% {background-position: 0% 60%;}
+  50% {background-position: 100% 41%;}
+  100% {background-position: 0% 60%;}
+}
+
+/* Remove all multi/pastel/rainbow navbar backgrounds, use soft brand blue */
+.cute-app-bg,
+.app {
+  min-height: 100vh;
+  background: none;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar,
+.cute-navbar {
+  background: linear-gradient(90deg, #3498db 90%, #2767a8 100%);
+  padding: 18px 0 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: var(--cool-card-shadow);
+  z-index: 100;
+  border-radius: 0 0 24px 24px;
+  box-sizing: border-box;
 }
 
 /* Cute playful font for the app */
