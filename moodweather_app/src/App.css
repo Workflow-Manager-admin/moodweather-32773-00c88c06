@@ -59,10 +59,17 @@ body {
 .cute-app-bg,
 .app {
   min-height: 100vh;
-  background: none;
+  /* Add overlay for possible image backgrounds */
+  background: linear-gradient(115deg, rgba(255,255,255,0.28) 0%, rgba(44,88,175,0.09) 100%);
   padding-bottom: 0;
   display: flex;
   flex-direction: column;
+}
+
+.cute-app-bg > *:not(nav),
+.app > *:not(nav) {
+  /* For visibility against overlays/backgrounds - ensure all top-level sections have text shadow fallback */
+  text-shadow: 0 2px 12px #fff7, 0 1px 0 #fff;
 }
 
 .navbar,
@@ -108,10 +115,17 @@ body {
 .cute-app-bg,
 .app {
   min-height: 100vh;
-  background: none;
+  /* Add overlay for possible image backgrounds */
+  background: linear-gradient(115deg, rgba(255,255,255,0.28) 0%, rgba(44,88,175,0.09) 100%);
   padding-bottom: 0;
   display: flex;
   flex-direction: column;
+}
+
+.cute-app-bg > *:not(nav),
+.app > *:not(nav) {
+  /* For visibility against overlays/backgrounds - ensure all top-level sections have text shadow fallback */
+  text-shadow: 0 2px 12px #fff7, 0 1px 0 #fff;
 }
 
 .navbar,
@@ -897,7 +911,7 @@ body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
   background: linear-gradient(160deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
-  color: var(--text-color);
+  color: #172033;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
