@@ -26,7 +26,6 @@ const weatherEmojis = {
  * - Displays city, temperature, mood, weather, quote, outfit, and sets a suitable background.
  */
 
-// PUBLIC_INTERFACE
 function App() {
   const [city, setCity] = useState('');
   const [mood, setMood] = useState('Happy');
@@ -35,7 +34,6 @@ function App() {
   const [error, setError] = useState(null);
 
   // Utility: mapping for (mood, weather) => {quote, outfit, bgImage}
-  // Adding a few sample combinations for brevity; you can expand as needed
   const moodWeatherMap = {
     'Happy_Clear': {
       quote: "Shine bright! It’s a perfect day to celebrate your joy.",
@@ -72,7 +70,6 @@ function App() {
       outfit: "Soft cardigan and your coziest jeans.",
       bg: "url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80')"
     },
-    // Catch-all fallback
     'default': {
       quote: "Whatever the weather and mood, you are doing your best!",
       outfit: "Pick whatever makes you feel good today.",
@@ -80,9 +77,8 @@ function App() {
     }
   };
 
-  // Map OpenWeatherMap's 'weather[0].main' to our simple keys.
+  // Map OpenWeatherMap's 'weather[0].main' to our keys.
   const normalizeWeather = (main) => {
-    // Typical values: "Clear", "Clouds", "Rain", "Snow", "Drizzle", "Thunderstorm", etc.
     if (main === "Clear") return "Clear";
     if (main === "Clouds") return "Clouds";
     if (main === "Rain" || main === "Drizzle" || main === "Thunderstorm") return "Rain";
@@ -90,14 +86,13 @@ function App() {
     return "Clouds";
   };
 
-  // Fetches real OpenWeatherMap API.
+  // Fetch OpenWeatherMap API.
   const handleFetchWeather = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     setWeatherData(null);
 
-    // For demo: You must insert your API key below from https://openweathermap.org/api
     const apiKey = '7b7c85836bda41485369c43acbf566cf';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
       city
@@ -122,51 +117,73 @@ function App() {
     setLoading(false);
   };
 
-  // Get mapping for mood+weather
+  // UI background overlay and result card config
   let mwConfig = null, bgStyle = {};
   if (weatherData) {
     const normalizedWeather = normalizeWeather(weatherData.main);
     const mapKey = `${mood}_${normalizedWeather}`;
     mwConfig = moodWeatherMap[mapKey] || moodWeatherMap['default'];
     bgStyle = {
-      backgroundImage: mwConfig.bg,
+      backgroundImage: 'linear-gradient(rgba(255,255,255,.40), rgba(252,249,245,.32)), ' + mwConfig.bg,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      borderRadius: '18px',
-      boxShadow: '0 2px 8px 0 rgba(52,152,219,0.18)'
+      borderRadius: '28px',
+      boxShadow: '0 4px 32px 0 rgba(236, 181, 254, 0.18)'
     };
   }
 
+  // Playful heading font for branding
+  const logoFontStyle = {
+    fontFamily: "'Fredoka', 'Comic Sans MS', 'Quicksand', 'Inter', cursive, sans-serif",
+    fontSize: "1.45rem",
+    fontWeight: 700,
+    letterSpacing: "0.02em",
+    color: "#df67fc",
+    textShadow: "0 2px 12px #e0cbe680, 0 1px 0 #fff"
+  };
+
+  // General font family override for fun/script
+  const playfulFont = { fontFamily: "'Fredoka', 'Quicksand', 'Comic Sans MS', 'Inter', cursive, sans-serif" };
+
   return (
-    <div className="app" style={weatherData && bgStyle ? { backgroundImage: mwConfig.bg, transition: 'background-image 0.8s' } : {}}>
-      <nav className="navbar">
+    <div className="app cute-app-bg" style={weatherData && bgStyle ? { backgroundImage: mwConfig.bg, transition: 'background-image 0.8s' } : {}}>
+      {/* App Bar */}
+      <nav className="navbar cute-navbar" style={playfulFont}>
         <div className="container" style={{ paddingLeft: 0, paddingRight: 0 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-            <div className="logo">
-              <span className="logo-symbol">*</span> MoodWeather
+            <div className="logo" style={logoFontStyle}>
+              <span className="logo-symbol" style={{fontSize: "1.7em", marginRight: 6, color: "#df67fc"}}>🌈</span> MoodWeather
+              <span style={{fontSize: "1.1em", marginLeft: "3px"}} role="img" aria-label="Smile">✨</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <span
+                className="cute-powered"
                 style={{
-                  color: 'var(--brand-primary)',
-                  fontWeight: 500,
-                  fontSize: '1rem',
-                  letterSpacing: '0.03em'
+                  color: '#ff9a76',
+                  fontWeight: 600,
+                  fontSize: '1.02rem',
+                  background: 'rgba(241,196,15,.07)',
+                  borderRadius: 10,
+                  padding: '4px 11px',
+                  ...playfulFont
                 }}
               >
-                Powered by KAVIA AI
+                Powered by <span style={{ color: '#e87a41', fontWeight: 700 }}>KAVIA AI</span>
               </span>
             </div>
           </div>
         </div>
       </nav>
 
+      {/* Main content form */}
       <main>
         <div className="container mw-vertical">
-          <form className="mw-form" onSubmit={handleFetchWeather} autoComplete="off">
-            <label className="mw-label" htmlFor="city-input">Your City</label>
+          <form className="mw-form cute-form" onSubmit={handleFetchWeather} autoComplete="off" style={playfulFont}>
+            <label className="mw-label cute-label" htmlFor="city-input">
+              <span role="img" aria-label="city" className="emoji-label">🏙️</span> &nbsp;Your City
+            </label>
             <input
-              className="mw-input"
+              className="mw-input cute-input"
               id="city-input"
               type="text"
               placeholder="Enter city (e.g. London)"
@@ -174,15 +191,19 @@ function App() {
               onChange={e => setCity(e.target.value)}
               required
               autoFocus
+              style={playfulFont}
             />
 
-            <label className="mw-label" htmlFor="mood-select">Your Mood</label>
+            <label className="mw-label cute-label" htmlFor="mood-select">
+              <span role="img" aria-label="mood" className="emoji-label">💖</span> &nbsp;Your Mood
+            </label>
             <select
-              className="mw-dropdown"
+              className="mw-dropdown cute-dropdown"
               id="mood-select"
               value={mood}
               onChange={e => setMood(e.target.value)}
               required
+              style={playfulFont}
             >
               <option>Happy</option>
               <option>Sad</option>
@@ -192,31 +213,53 @@ function App() {
             </select>
 
             <button
-              className="btn btn-large mw-btn"
+              className="btn btn-large mw-btn cute-btn"
               type="submit"
               disabled={loading}
-              style={{ marginTop: 8 }}
+              style={{ marginTop: 8, ...playfulFont }}
             >
-              {loading ? "Fetching..." : "Get Weather"}
+              {loading ? <span>🌧️ Fetching...</span> : <span>🌦️ Get Weather</span>}
             </button>
           </form>
 
+          {/* Result Card */}
           <div className="mw-results">
-            {error && <div className="mw-error">{error}</div>}
+            {error && <div className="mw-error cute-error">{error}</div>}
             {weatherData && (
-              <div className="mw-weather-card" style={bgStyle}>
-                <div className="mw-weather-main">{weatherData.city}</div>
-                <div className="mw-weather-temp">{weatherData.temp}</div>
-                <div className="mw-weather-desc">{weatherData.description} <span style={{fontWeight:'600'}}>({weatherData.main})</span></div>
-                <div className="mw-weather-mood">
-                  <span className="mw-mood-title">Your mood:</span> <span className="mw-mood-value">{mood}</span>
+              <div className="mw-weather-card cute-weather-card" style={bgStyle}>
+                <div className="mw-weather-main cute-city">
+                  <span style={{ fontSize: "2.1rem", marginRight: "7px" }}>
+                    {weatherEmojis[normalizeWeather(weatherData.main)] || '🌈'}
+                  </span>
+                  {weatherData.city}
                 </div>
-                <div style={{ marginTop: 12, color: "#fffbe8" }}>
-                  <strong>Motivation:</strong><br />
+                <div className="mw-weather-temp cute-temp">
+                  <span role="img" aria-label="temperature" style={{marginRight: 8, fontSize: "1.5rem"}}>🌡️</span>
+                  {weatherData.temp}
+                </div>
+                <div className="mw-weather-desc cute-weather-desc">
+                  <span>{weatherData.description}</span>
+                  {" "}
+                  <span style={{fontWeight:'700', fontSize: "1.08em"}}>
+                    ({weatherEmojis[normalizeWeather(weatherData.main)] || weatherData.main})
+                  </span>
+                </div>
+                <div className="mw-weather-mood cute-weather-mood">
+                  <span className="mw-mood-title" style={{}}>
+                    <span role="img" aria-label={mood}>{moodEmojis[mood]}</span>
+                    &nbsp;Your mood:
+                  </span>
+                  <span className="mw-mood-value" style={{marginLeft: 7}}>
+                    {mood}
+                  </span>
+                </div>
+                <div className="cute-motivation" style={{ marginTop: 13, color: "#fff9ed", background: "rgba(236, 181, 254, .19)", borderRadius: "12px", padding: "10px 17px" }}>
+                  <span role="img" aria-label="inspiration" style={{fontSize:"1.25em", marginRight: 6}}>✨</span>
                   <span style={{ fontSize: '1.07rem' }}>{mwConfig.quote}</span>
                 </div>
-                <div style={{ marginTop: 6, color: "#f1c40f" }}>
-                  <strong>Outfit Suggestion:</strong> {mwConfig.outfit}
+                <div className="cute-outfit" style={{ marginTop: 7, color: "#e76bee", fontWeight: 600 }}>
+                  <span role="img" aria-label="outfit" style={{marginRight: "2px"}}>🧃👗</span>
+                  Outfit Suggestion: <span>{mwConfig.outfit}</span>
                 </div>
               </div>
             )}
